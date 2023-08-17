@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-1">
     <div class="col-10 mx-auto">
         <h2 class="text-center">There is the list of our available cars</h2>
         <table class="table table-bordered table-hover table-striped mt-2">
@@ -20,16 +20,42 @@
                     <td>{{ car.brandName }}</td>
                     <td>{{ car.power }}</td>
                     <td>
-                        <button class="btn btn-success m-1"> Add </button>
-                        <button class="btn btn-info m-1"> Details </button>
+                        <button class="btn btn-success m-1" (click)="SelectCar(car.carId)"> Add </button>
+                        <button class="btn btn-info m-1" (click)="viewDetails(car.carId)"> Details </button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-<div class="row">
-    <div class="col-12">
+<div class="row" *ngIf="SelectedCars && SelectedCars.length > 0">
+    <div class="col-10 mx-auto">
         <h2 class="text-center">The Selected cars:</h2>
+        <table class="table table-bordered table-hover table-striped mt-2">
+            <thead>
+                <tr>
+                    <th class="text-center h4">Model Name</th>
+                    <th class="text-center h4">Rent Until</th>
+                    <th class="text-center h4">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let SelectedCar of SelectedCars">
+                    <td class="text-center h4">{{ SelectedCar.modelName }}</td>
+                    <td class="text-center">
+                        <input type="date" name="rentDate" class="form-control" [(ngModel)]="rentDate">
+                    </td>
+                    <td class="text-center">
+                        <button class="btn btn-success" (click)="ConfirmBooking(SelectedCar.carId)">
+                            Confirm Booking
+                        </button>
+                        <button class="btn btn-danger m-1" (click)="DeleteCar(SelectedCar.carId)"> Delete </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-10 mx-auto">
+
     </div>
 </div>

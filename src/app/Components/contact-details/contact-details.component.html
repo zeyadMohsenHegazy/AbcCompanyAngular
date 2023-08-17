@@ -9,7 +9,9 @@
                     <div class="form-group">
                         <label for="CustomerName">Name</label>
                         <input id="CustomerName" name="CustomerName" type="text" class="form-control rounded-2"
-                            placeholder="Zeyad Mohsen" formControlName="CustomerName" />
+                            placeholder="Zeyad Mohsen" formControlName="CustomerName"                   
+                            [class.error]="ContactForm.controls['CustomerName'].dirty && ContactForm.hasError('required','CustomerName')"
+                            (blur)="ContactForm.controls['CustomerName'].markAsTouched()"/>
                     </div>
                     <div class="form-group mt-2">
                         <label for="Nationality">Nationality</label>
@@ -24,17 +26,20 @@
                         <label for="DrivingLicenseNum">Driving License</label>
                         <input id="DrivingLicenseNum" name="DrivingLicenseNum" type="text"
                             class="form-control rounded-2" placeholder="2187389213120"
-                            formControlName="DrivingLicenseNum" />
+                            formControlName="DrivingLicenseNum" [class.error]="ContactForm.controls['DrivingLicenseNum'].dirty && ContactForm.hasError('required','DrivingLicenseNum')"
+                            (blur)="ContactForm.controls['DrivingLicenseNum'].markAsTouched()"/>
                     </div>
                     <div class="form-group mt-2">
                         <label for="TransactionDate">Transaction Date</label>
                         <input id="TransactionDate" name="TransactionDate" type="date" class="form-control rounded-2"
-                            formControlName="TransactionDate" />
+                            formControlName="TransactionDate"  [class.error]="ContactForm.controls['TransactionDate'].dirty && ContactForm.hasError('required','TransactionDate')"
+                            (blur)="ContactForm.controls['TransactionDate'].markAsTouched()"/>
                     </div>
                     <div class="form-group mt-2">
                         <label for="AdvancedPayment">Advanced Payment</label>
                         <input id="AdvancedPayment" name="AdvancedPayment" type="text" class="form-control rounded-2"
-                            placeholder="Visa Card" formControlName="AdvancedPayment" />
+                            placeholder="Visa Card" formControlName="AdvancedPayment" [class.error]="ContactForm.controls['AdvancedPayment'].dirty && ContactForm.hasError('required','AdvancedPayment')"
+                            (blur)="ContactForm.controls['AdvancedPayment'].markAsTouched()"/>
                     </div>
                     <button type="submit" class="btn btn-dark w-100 mt-4" (click)="SubmiteTheForm()"
                         [disabled]="!ContactForm.valid">

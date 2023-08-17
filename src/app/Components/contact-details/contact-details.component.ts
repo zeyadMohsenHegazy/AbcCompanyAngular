@@ -35,12 +35,14 @@ export class ContactDetailsComponent implements OnInit {
   SubmiteTheForm() {
     if (this.ContactForm.valid) {
       this.contactService.SaveContactInfo(this.ContactForm.value).subscribe({
-        next: () => {
+        next: (value: any) => {
+          this.contactService.SaveBookingId(value.bookingId);
+          this.contactService.SetTransactionDate(value.transactionDate);
           alert('Now time to book a car');
           this.router.navigate(['car']);
         },
         error: (err: any) => {
-          console.log(err?.error.message);
+          console.log(err);
         },
       });
     } else {

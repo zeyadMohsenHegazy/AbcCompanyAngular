@@ -13,4 +13,21 @@ export class SaveContactInfoService {
   SaveContactInfo(UserObj: ContactInfo) {
     return this.http.post<ContactInfo>(`${this.apiUrl}`, UserObj);
   }
+
+  SaveBookingId(BookingId: any) {
+    localStorage.setItem('BookingId', BookingId);
+  }
+
+
+  GetBookingId() {
+    return localStorage.getItem('BookingId');
+  }
+
+  SetTransactionDate(date: any) {
+    localStorage.setItem('TransactionDate', date);
+  }
+
+  GetTransactionDate() {
+    return localStorage.getItem('TransactionDate');
+  }
 }
