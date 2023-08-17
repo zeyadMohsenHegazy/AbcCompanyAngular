@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-10 mx-auto">
+        <h2 class="text-center">There is the list of our available cars</h2>
+        <table class="table table-bordered table-hover table-striped mt-2">
+            <thead>
+                <tr>
+                    <th>Model Name</th>
+                    <th>Model Type</th>
+                    <th>Model Year</th>
+                    <th>Brand Name</th>
+                    <th>Power</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let car of cars">
+                    <td>{{ car.modelName }}</td>
+                    <td>{{ car.modelType }}</td>
+                    <td>{{ car.modelYear }}</td>
+                    <td>{{ car.brandName }}</td>
+                    <td>{{ car.power }}</td>
+                    <td>
+                        <button class="btn btn-success m-1"> Add </button>
+                        <button class="btn btn-info m-1"> Details </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h2 class="text-center">The Selected cars:</h2>
+    </div>
+</div>
